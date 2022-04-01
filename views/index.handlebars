@@ -1,0 +1,45 @@
+<div class="py-4">
+  <h2>Lista de participantes</h2>
+
+  <hr/>
+
+  <table class="table table-dark">
+
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Años de experiencia</th>
+        <th scope="col">Especialidad</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      {{#each usuarios}}
+
+        <tr>
+          <th>{{@index}}</th>
+          <td>
+            <img src="/fotos/{{this.foto}}" width="130" height="150" class="img-fluid">
+          </td>
+          <td>{{this.nombre}}</td>
+          <td>{{this.anos_experiencia}}</td>
+          <td>{{this.especialidad}}</td>
+          <td class="estado">
+            {{#if this.estado}} <b class="text-success">Aprobado</b> {{else}} <b class="text-warning">En revisión </b>{{/if}}
+          </td>
+        </tr>
+
+      {{/each}}
+
+    </tbody>
+
+  </table>
+
+  <a href="/login">Iniciar Sesión</a> |
+  <a href="/usuarios">Registrarme</a>
+
+</div>

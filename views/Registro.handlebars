@@ -1,0 +1,87 @@
+<div class="py-4">
+
+  <h2>Registro</h2>
+
+  <hr class="text-center">
+
+  <form>
+    <div class="form-group row w-50 m-auto">
+
+      <div class="form-group col-12 col-sm-6">
+        <label>Email</label>
+        <input class="form-control m-auto" type="text" id="email" />
+      </div>
+
+      <div class="form-group col-12 col-sm-6">
+        <label>Nombre</label>
+        <input class="form-control m-auto" type="text" id="nombre" required/>
+      </div>
+
+      <div class="form-group col-12 col-sm-6">
+        <label>Password</label>
+        <input class="form-control m-auto pass" type="password" id="password" required/>
+      </div>
+
+      <div class="form-group col-12 col-sm-6">
+        <label>Repita la password</label>
+        <input class="form-control m-auto pass" type="password" id="password2" required/>
+      </div>
+
+      <div class="form-group col-12 col-sm-6">
+        <label>Años de experiencia</label>
+        <input class="form-control m-auto" type="number" id="anos_experiencia" required/>
+      </div>
+
+      <div class="form-group col-12 col-sm-6">
+        <label>Especialidad</label>
+        <input class="form-control m-auto" type="text" id="especialidad" required/>
+      </div>
+    
+    </div>
+
+    <button class="btn btn-info mb-3 mt-5" type="button">Registrarme</button>
+    <p><a href="/login"> Iniciar sesión</a></p>
+
+  </form>
+
+</div>
+
+<script>
+
+  $('button').click(async () => {
+
+    const email = $('#email').val()
+    const nombre = $('#nombre').val()
+    const password = $('#password').val()
+    const password2 = $('#password2').val()
+    const anos_experiencia = $('#anos_experiencia').val()
+    const especialidad = $('#especialidad').val()
+
+    const payload = { email, nombre, password, anos_experiencia, especialidad }
+
+    try{
+
+      if(password === password2){
+
+        await axios.post('/usuarios', payload)
+
+        alert('usuario registrado con éxito')
+
+        window.location.href = '/foto'
+
+      }else{
+        alert('Las contraseñas no coinciden')
+      }
+
+    }catch({ response }){
+
+      const { data } = response
+      const { error } = data
+      alert(error)
+
+    }
+
+  })
+
+</script>
+

@@ -1,0 +1,51 @@
+<div>
+
+    <h2>Registro</h2>
+
+    <hr class="text-center">
+
+    <form action="/foto" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group col-12 col-sm-12">
+            <label>Foto de perfil</label>
+            <input type="file" name="foto" required/>
+        </div>
+        
+        <button class="btn btn-info mb-3 mt-5" type="submit"> Subir! </button>
+
+    </form>
+
+    <p class="pt-5"><b class="text-danger">Advertencia!</b> Esta es la única instancia para subir tu foto</p>
+
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        No quiero subir mi foto!
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Esta acción no se podra revertir</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡Esta es la única instancia para cargar tu imagen de perfil!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-danger">
+                        <a href="/" style="text-decoration: none; color: white;">Ir al inicio</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    
+
+</script>
